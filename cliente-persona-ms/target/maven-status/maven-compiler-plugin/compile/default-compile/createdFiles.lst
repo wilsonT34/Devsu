@@ -1,0 +1,17 @@
+com/banco/clientepersona/ClientePersonaApplication.class
+com/banco/clientepersona/exception/DuplicateIdentificacionException.class
+com/banco/clientepersona/dto/ErrorResponseDTO.class
+com/banco/clientepersona/repository/ClienteRepository.class
+com/banco/clientepersona/config/RabbitMQConfig.class
+com/banco/clientepersona/entity/Cliente.class
+com/banco/clientepersona/config/AppConfig.class
+com/banco/clientepersona/exception/GlobalExceptionHandler.class
+com/banco/clientepersona/service/ClienteService1.class
+com/banco/clientepersona/event/ClienteEventPublisher.class
+com/banco/clientepersona/exception/ClienteNotFoundException.class
+com/banco/clientepersona/dto/ClienteEventDTO.class
+com/banco/clientepersona/dto/ClienteLocalDTO.class
+com/banco/clientepersona/service/ClienteService.class
+com/banco/clientepersona/entity/Persona.class
+com/banco/clientepersona/controller/ClienteController.class
+com/banco/clientepersona/dto/ClienteDTO.class

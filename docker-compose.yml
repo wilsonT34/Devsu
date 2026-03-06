@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL
+  postgres:
+    image: postgres:15
+    container_name: banco-postgres
+    environment:
+      POSTGRES_DB: banco_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Wilson_1988
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./database/BaseDatos.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - banco-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: banco-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin123
+    ports:
+      - "5672:5672"   # Puerto para conexiones AMQP
+      - "15672:15672" # Puerto para consola de administración
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - banco-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Microservicio Cliente-Persona
+  cliente-persona-ms:
+    build: ./cliente-persona-ms
+    container_name: cliente-persona-ms
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      # Estas variables sobrescriben las del properties si es necesario
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/banco_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Wilson_1988
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: admin123
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - banco-network
+    restart: unless-stopped
+
+  # Microservicio Cuenta-Movimiento
+  cuenta-movimiento-ms:
+    build: ./cuenta-movimiento-ms
+    container_name: cuenta-movimiento-ms
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/banco_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Wilson_1988
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: admin123
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - banco-network
+    restart: unless-stopped
+
+# Volúmenes para persistencia de datos
+volumes:
+  postgres-data:
+  rabbitmq-data:
+
+# Red para comunicación entre contenedores
+networks:
+  banco-network:
+    driver: bridge

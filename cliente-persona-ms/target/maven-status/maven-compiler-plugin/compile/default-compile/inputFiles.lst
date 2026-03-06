@@ -1,0 +1,17 @@
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/exception/ClienteNotFoundException.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/service/ClienteService.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/event/ClienteEventPublisher.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/dto/ClienteLocalDTO.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/entity/Persona.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/controller/ClienteController.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/dto/ClienteDTO.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/service/ClienteService1.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/dto/ClienteEventDTO.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/repository/ClienteRepository.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/config/RabbitMQConfig.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/exception/GlobalExceptionHandler.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/exception/DuplicateIdentificacionException.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/dto/ErrorResponseDTO.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/entity/Cliente.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/ClientePersonaApplication.java
+/Users/user/Documents/Workspace/UMG/2025/DesarrolloWeb/cliente-persona-ms/src/main/java/com/banco/clientepersona/AppConfig.java

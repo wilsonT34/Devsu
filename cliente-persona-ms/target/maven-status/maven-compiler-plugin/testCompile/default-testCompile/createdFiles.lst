@@ -1,0 +1,6 @@
+com/banco/clientepersona/service/ClienteServiceTest.class
+com/banco/clientepersona/service/ClienteServiceTest$CrearClienteTests.class
+com/banco/clientepersona/service/ClienteServiceTest$EliminarClienteTests.class
+com/banco/clientepersona/service/ClienteServiceTest$ObtenerClienteTests.class
+com/banco/clientepersona/service/ClienteServiceTest$ListarClientesTests.class
+com/banco/clientepersona/service/ClienteServiceTest$ActualizarClienteTests.class
